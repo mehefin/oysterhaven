@@ -1,0 +1,92 @@
+### font, exec functions, modkey and fibonacci layout
+font pango: 					Hermit Bold 12
+set $exe 						exec --no-startup-id
+set $meta 						bindsym Mod4
+set $metashi 					bindsym Mod4+Shift
+set $mod 						Mod4
+for_window [class=".*"] 		split toggle
+
+### hide borders and titles
+for_window [class="^.*"] 		border pixel 0
+hide_edge_borders 				both
+new_window 						none
+
+### set gaps
+gaps inner 						7
+gaps outer 						1
+
+### resource colors 			border   background   text    indicator
+set_from_resource 				$dark    i3.bgrnd     #121416
+set_from_resource 				$ina     i3.inact     #7bc2c5
+set_from_resource 				$light   i3.fgrnd     #bccddd
+set_from_resource 				$red     i3.urgen     #7fb1d4
+
+### corner and title colors
+client.focused 					$dark    $dark        $light $dark
+client.focused_inactive 		$dark    $dark        $light $dark
+client.unfocused 				$dark    $dark        $dark  $dark
+client.urgent 					$dark    $dark        $red   $dark
+
+### window resizing
+mode "resize" {
+		bindsym $down 			resize 	grow 	height 	10 px or 10 ppt
+		bindsym $left 			resize 	shrink 	width 	10 px or 10 ppt
+		bindsym $right 			resize 	grow 	width 	10 px or 10 ppt
+		bindsym $up 			resize 	shrink 	height 	10 px or 10 ppt
+		bindsym Escape 			mode 	"default"
+}
+$meta+r 						mode 	"resize"
+floating_modifier 				$mod
+
+### workspace names
+set $ws1 						"■ geamhradh"
+set $ws2 						"▼ earrach"
+set $ws3 						"● samhradh"
+set $ws4 						"◀ foghar"
+
+### moving between and to workspaces
+$meta+i 						workspace $ws1
+$meta+j 						workspace $ws2
+$meta+k 						workspace $ws3
+$meta+l 						workspace $ws4
+$metashi+i 						move container to workspace $ws1
+$metashi+j 						move container to workspace $ws2
+$metashi+k 						move container to workspace $ws3
+$metashi+l 						move container to workspace $ws4
+
+### switch between previous and next workspace
+$meta+e 						workspace next
+$meta+q 						workspace prev
+
+### change focus, container layout and view
+$meta+v 						fullscreen toggle
+$meta+w 						focus up
+$meta+s 						focup down
+$meta+a 						focus left
+$meta+d 						focus right
+$meta+c 						floating toggle
+$meta+x 						layout toggle all
+focus_follows_mouse 			no
+focus_on_window_activation 		focus
+mouse_warping 					none
+
+### move focused window
+$metashi+w 						move up
+$metashi+a 						move left
+$metashi+s 						move down
+$metashi+d 						move right
+
+### exit or restart wm, kill focused window, etc
+$metashi+q 						kill
+$metashi+r 						restart
+
+### autloading apps
+$exe 							feh --bg-fill /home/username/your_picture.jpg
+$exe 							picom --config /home/username/your_picom.conf
+$exe 							polybar --config=/home/username/your_config.ini
+$exe 							setxkbmap -layout us,ie -option 'grp:alt_shift_toggle'
+
+### personal keybind set
+$meta+z 						$exe dmenu_run
+$meta+grave 					$exe pactl set-sink-volume @DEFAULT_SINK@ +10%
+$meta+Tab 						$exe pactl set-sink-volume @DEFAULT_SINK@ -10%

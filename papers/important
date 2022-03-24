@@ -1,0 +1,4 @@
+I use a fork of dmenu: clean dmenu, so be careful with the dmenu config file and better install the fork - https://github.com/migueravila/CleanDmenu. There is one trick I did, 
+polybar has now its borders transparent, thanks to picom, so if you turn off picom, polybar borders will no longer be transparent. Setxkbmap line inside of i3wm config will be 
+useful for those who are not native english speakers and would like to switch their keyboard layout by pressing alt and shift, just put your country code instead of "ie", for 
+instance, fr for french layout, de for german layout, ru for russian layout, and so forth, just google your country code to know.
