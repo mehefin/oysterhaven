@@ -3,4 +3,4 @@ There is one trick I did, polybar has now its borders transparent, thanks to pic
 Setxkbmap line inside of i3wm config will be useful for those who are not native english speakers and would like to switch their keyboard layout
 by pressing alt and shift, just put your country code instead of "ie", for instance, fr for french layout, de for german layout, ru for russian layout, and 
 so forth, just google your country code to know. By the way, in this rice, for polybar and terminal, I use a font called "Hermit", 
-you can also find it in my first git branch. Enjoy it.
+you can also find it in my first git branch.
